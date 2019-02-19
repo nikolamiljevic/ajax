@@ -1,3 +1,5 @@
+<?php include('conn/conn.php')?>
+<?//php include('classes/main.php')?>
 
 <!doctype html>
 <html lang="en">
@@ -38,7 +40,31 @@
     <link href="css/bootstrap-grid.css" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+<script>
+  
+  $(document).ready(function(){
+    var newsCount = 3;
+  
+    $("button").click(function(){
+       newsCount = newsCount + 3;
+      $(".row").load("load-content.php",{
+       newsNewCount: newsCount
+      });
+    });
+  });
+</script>
   </head>
 
   <body>
+
+
+   <nav class="site-header sticky-top py-1" style="background-color: rgb(85, 89, 92);">
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+ 
+    <a class="py-2 d-none d-md-inline-block" href="home">Home</a>
+    <a class="py-2 d-none d-md-inline-block" href="about">About</a>
+    <a class="py-2 d-none d-md-inline-block" href="contact">Contact</a>
+   
+  </div>
+</nav>
+  

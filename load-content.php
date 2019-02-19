@@ -1,7 +1,10 @@
-<?php
- include('conn/conn.php');
 
-$sql = "SELECT * FROM news limit 3";
+<?php
+include('conn/conn.php');
+
+$newsNewCount = $_POST['newsNewCount'];
+
+$sql = "SELECT * FROM news limit $newsNewCount";
 $result = mysqli_query($conn,$sql);
 
   if(mysqli_num_rows($result) > 0) {
@@ -28,24 +31,3 @@ $result = mysqli_query($conn,$sql);
   }
 
 ?>
-
-
-<button style="margin: auto; border-radius: 5px; height: 50px; width: 100%; border-style: none;">Load more content</button>
-
-
-<script>
-  
-  $(document).ready(function(){
-    var newsCount = 3;
-  
-    $("button").click(function(){
-       newsCount = newsCount + 3;
-      $(".row").load("load-content.php",{
-       newsNewCount: newsCount
-      });
-    });
-  });
-</script>
-
-
-
